@@ -1,5 +1,5 @@
-## TheMindfulFoodie – Sprint Task Log ##
-# Sprint 1 (March 25 – April 7) #
+# TheMindfulFoodie – Sprint Task Log #
+## Sprint 1 (March 25 – April 7) ##
 
  1. Create repository – Victoria: DONE
 
@@ -13,7 +13,7 @@
 
  6. Fork and test openfoodfacts-python – Victoria: DONE
 
-# Sprint 2 (April 8 – April 14) #
+## Sprint 2 (April 8 – April 14) ##
 
  1. Set up product search using OpenFoodFacts – Victoria: IN PROGRESS
 
@@ -25,7 +25,7 @@
 
  5. Start documenting features in README – Victoria: 
 
-# Sprint 3 (April 15 – April 21) #
+## Sprint 3 (April 15 – April 21) ##
 
  1. Test GUI + data flow – Victoria: 
 
