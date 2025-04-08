@@ -38,6 +38,10 @@ And with my growing knowledge of Information Systems tools, I am making that wis
 - [PyHealthy](https://github.com/StaubDevLab/PyHealthy) 
 - [DonutEatThis](https://github.com/michaelhtleung/DonutEatThis)
 
+I plan to integrate the following repo(s):
+
+- [openfoodfacts-python](https://github.com/VikkiTikki/openfoodfacts-python)
+
 ##  🧑‍🤝‍🧑 Collaboration(?)
 
 This app is being made solo! If time (and energy) permits, I plan to expand the app include more complex features like visualizations or charts.
