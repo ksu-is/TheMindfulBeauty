@@ -23,9 +23,9 @@ I believe we must be mindful of where our money goes and which companies we supp
 
 And with my growing knowledge of Information Systems tools, I am making that wish a reality🪄
 
-## :octocat: Tools & Tech
+## 🤓 Tools & Tech
 
-- **Python** 
+- **Python** :octocat:
 - **Tkinter** (for GUI) 
 - Data sources:  
   - [Open Food Facts](https://world.openfoodfacts.org)  
