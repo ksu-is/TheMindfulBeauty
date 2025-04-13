@@ -1,3 +1,5 @@
+#Import SDK and create API object
 import openfoodfacts
-api = openfoodfacts.API(user_agent="MyAwesomeApp/1.0")
+api = openfoodfacts.API(user_agent="TheMindfulFoodie")
 
+api.product.text_search("mineral water")
