@@ -6,14 +6,17 @@ page = requests.get(url)
 soup = BeautifulSoup(page.text, 'html.parser')
 
 results = soup.find(id="rating__rows")
-rows = results.find_all("div", class_="rating__row") 
+data= results.find_all("div", class_="rating__row") 
 
-for info in rows: 
+for info in data: 
     brand_name = info.find("h3", class_="text-xs")
-    ethics = info.find("h6", class_="text-base")
+    ethics = info.find_all("h6", class_="text-base") #replaced find with find_all so it returns all matches as a list
     rating = info.find("div", class_="rating__index")
 
     if brand_name and ethics and rating:
         print(brand_name.text.strip())
-        print(ethics.text.strip())
+        #added necessary loop
+        for diff in ethics:
+            print(ethics.text.strip())
         print(rating.text.strip())
+
