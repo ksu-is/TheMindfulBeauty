@@ -17,6 +17,6 @@ for info in data:
         print(brand_name.text.strip())
         #added necessary loop
         for diff in ethics:
-            print(ethics.text.strip())
+            print(diff.text.strip())
         print(rating.text.strip())
 
