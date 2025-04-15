@@ -13,8 +13,8 @@ It will allow users to:
 - View 47 popular skin care brands from the GSG website.
 - View ethical ratings in regards to the environment, people, animals, etc.
 - View each brands' GSG Ethical Score.
-- View brands in rank order and search brands with scores within a certian range
-- Have access to a interactive webapp
+- View brands in rank order and search brands with scores within a certain range
+- Have access to an interactive webapp
 
 ## 🤓 Tools & Tech
 
