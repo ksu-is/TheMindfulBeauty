@@ -1,6 +1,7 @@
-#  🐟🍗TheMindfulFoodie🥑🍿
+#  💄TheMindfulBeauty😄
 
-A basic app designed for shoppers (and foodies!) who want more than just nutritional information. Along with the basics, shoppers can also see **how ethical and sustainable** their food choices are.
+~Change in direction due to data set/API issues!~
+A basic app designed for skincare shoppers who want to be mindful where their money goes. Shoppers can see **how ethical and sustainable** skin care brands are before purchasing! 
 
 ##  🔍 About
 
