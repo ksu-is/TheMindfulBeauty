@@ -32,13 +32,14 @@ if user_input == ('Brands').lower():
         print("\nAvailable Brands:\n")
         print(" | ".join(brand_names))
 else:
+    available = False
     for brand in brands_data:
         if brand['name'].lower() == user_input:
             print("\nBrand: " + brand['name'])
             print("Ethical Criteria:")
             for ethic, rating in brand['ethics']:
                 print(" - " + ethic + " - " + rating)
-            print("Overall Rating: " + brand['rating'])
+            print("Overall Score: " + brand['score'])
             available = True
             break        
 
