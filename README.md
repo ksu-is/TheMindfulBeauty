@@ -1,6 +1,6 @@
 #  💄👩‍⚕️TheMindfulBeauty🌍🤝
 
-~Change in direction due to data set/API issues!~
+~Change in direction due to OpenFoodFacts data set/API issues!~
 
 A basic app designed for skincare shoppers who want to be mindful where their money goes. Shoppers can see **how ethical and sustainable** skin care brands are before purchasing! 
 
