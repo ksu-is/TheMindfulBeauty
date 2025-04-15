@@ -16,35 +16,32 @@ for info in data:
     score_info = info.find("div", class_="rating__index")
 
     if brand_info and ethics_info and rating_info:
+        ethics = [(ethic.text.strip(), rating.text.strip()) for ethic, rating in zip(ethics_info, rating_info)] #used zip for parallel iteration
         brands_data.append({
             'name': brand_info.text.strip(),
-            'ethics': [txt.text.strip() for txt in ethics_info], #ensures all criteria for each company is collected 
-            'rating':[txt.text.strip() for txt in rating_info],
+            'ethics': ethics, #simplified
             'score': score_info.text.strip()
         })
 
 
 user_input = input("Welcome! Enter a brand name: ").strip().lower() #allows user to search for specific brands 
 
-available = False
-for brand in brands_data:
-    if brand['name'].lower() == user_input:
-        print("\nBrand: " + brand['name'])
-        print("Ethical Criteria:")
-        for e in brand['ethics']:
-                for r in rating['rating']:
-                     print(" - " + e + r)
-        print("Overall Rating: " + brand['rating'])
-        available = True
-        break
+brand_names = [brand['name'] for brand in brands_data]
 
-    brand_names = [brand['name'] for brand in brands_data]
-
-    if user_input == ('Brands').lower():
+if user_input == ('Brands').lower():
         print("\nAvailable Brands:\n")
         print(" | ".join(brand_names))
-        
+else:
+    for brand in brands_data:
+        if brand['name'].lower() == user_input:
+            print("\nBrand: " + brand['name'])
+            print("Ethical Criteria:")
+            for ethic, rating in brand['ethics']:
+                print(" - " + ethic + " - " + rating)
+            print("Overall Rating: " + brand['rating'])
+            available = True
+            break        
 
-if not available:
-    print("Brand not found. Please check the spelling or try another brand!")
+    if not available:
+        print("Brand not found. Please check the spelling or try another brand!")
 
