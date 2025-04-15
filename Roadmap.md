@@ -7,7 +7,7 @@
 
  3. Create projectroadmap.md – Victoria: DONE
 
- 4. Find related repositories and evaluate code (e.g. PyHealthy, DonutEatThis) – Victoria: DONE
+ 4. Find related repositories and evaluate code – Victoria: DONE
 
  5. Install necessary Python libraries – Victoria: DONE
 
