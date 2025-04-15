@@ -16,13 +16,19 @@ for info in data:
     score_info = info.find("div", class_="rating__index")
 
     if brand_info and ethics_info and rating_info:
-        ethics = [(ethic.text.strip(), rating.text.strip()) for ethic, rating in zip(ethics_info, rating_info)] #used zip for parallel iteration
+        ethics = []
+        for i in range(len(ethics_info)):
+            ethic = ethics_info[i].text.strip()
+            rating = rating_info[i].text.strip()
+            
+            if "Use setting" not in rating and not ethic.endswith("+"): #skips ethics ending in "+" and prevents "Use setting" appearing as a rating
+                ethics.append((ethic, rating)) #deleted zip and used append to add as pair to list 
+
         brands_data.append({
             'name': brand_info.text.strip(),
             'ethics': ethics, #simplified
             'score': score_info.text.strip()
         })
-
 
 user_input = input("Welcome! Enter a brand name: ").strip().lower() #allows user to search for specific brands 
 
