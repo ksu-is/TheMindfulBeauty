@@ -19,18 +19,18 @@ for info in data:
     score_info = info.find("div", class_="rating__index")
 
     if brand_info and ethics_info and rating_info:
-        ethics = []
+        csv_data = {
+            'name': brand_info.text.strip(),
+            'score': score_info.text.strip()
+        }
+        
         for i in range(len(ethics_info)):
             ethic = ethics_info[i].text.strip() 
             rating = rating_info[i].text.strip()
-            ethics.append((ethic, rating)) #forgot to append 'ethic,rating' to 'ethics', added again 
+            csv_data[ethic] = rating #makes each ethic its own column with its correpsonding rating 
             
-        brands_data.append({
-            'name': brand_info.text.strip(),
-            'score': score_info.text.strip(),
-            'ethics': ethics, #plan to filter out 'Use Setting' that is still appearing, wanted to test CSV first
-        })
+        brands_data.append(csv_data)
 
-page = pd.DataFrame(brands_data, columns=['name', 'ethics', 'score']) #mispelled columns, fixed
-csv = page.to_csv('skincare.csv')
-print(csv)
+page = pd.DataFrame(brands_data)
+page.to_csv('skincare.csv', index=False, encoding='utf-8-sig') #added 'utf-8-sig' parameter to fix misreading of csv file 
+print('skincare.csv created!')
