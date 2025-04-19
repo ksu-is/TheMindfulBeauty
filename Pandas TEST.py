@@ -1,18 +1,20 @@
 from bs4 import BeautifulSoup
 import requests
+import json
 import pandas as pd
 
 brands_data = []
 
-#since only one URL neccesary took away 'for criteria:' portion
 url = 'https://thegoodshoppingguide.com/subject/ethical-skincare/?_gl=1*1g6vg9w*_up*MQ..*_ga*MTUwODAxMTUzMC4xNzQ0NTIyNjQy*_ga_PYEMHYT21H*MTc0NDUyMjY0Mi4xLjEuMTc0NDUyMjkxMy4wLjAuMA..'
-response = requests.get(url)
-soup = BeautifulSoup(response.text, 'html.parser')
+r = requests.get(url)
 
-results = soup.find(id="rating__rows")
-data= results.find_all("div", class_="rating__row") 
+soup = BeautifulSoup(r.content, 'html.parser')
+script = soup.find_all('script')[2]
 
-for info in data:
+results = soup.find(type="text/javascript")
+table = results.find_all("div", class_="rating__row") 
+
+for info in table:
     brand_info = info.find("h3", class_="text-xs")
     ethics_info = info.find_all("h6", class_="text-base") #replaced find with find_all so it returns all matches as a list
     rating_info = info.find_all("span", class_="sr-only")
@@ -24,10 +26,13 @@ for info in data:
             'score': score_info.text.strip()
         }
         
+        valid_ratings = ["Good", "Poor", "Acceptable"]
         for i in range(len(ethics_info)):
             ethic = ethics_info[i].text.strip() 
             rating = rating_info[i].text.strip()
-            csv_data[ethic] = rating #makes each ethic its own column with its correpsonding rating 
+
+            if rating in valid_ratings:
+                csv_data[ethic] = rating #makes each ethic its own column with its correpsonding rating 
             
         brands_data.append(csv_data)
 
