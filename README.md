@@ -6,7 +6,7 @@ A basic app designed for skincare shoppers who want to be mindful where their mo
 
 ##  🔍 About
 
-With skincare being an almost 200 billion dollar industry, such influence leads to a higher impact on the environment, people, and animals. Through data scraping (with lovely BeautifulSoup) and utilizing Streamlit, users are capable of viewing ethical information on top skincare brands from The Good Shopping Guide (GSG)- having provided ethical brands ratings and accreditation since 2001!
+With skincare being an almost 200 billion dollar industry, such influence leads to a higher impact on the environment, people, and animals. Through data scraping (with lovely BeautifulSoup) and utilizing Streamlit, users are capable of viewing ethical information on top skincare brands from The Good Shopping Guide (GSG)- having provided ethical brands ratings and accreditation since 2001.
 
 It will allow users to:
 
