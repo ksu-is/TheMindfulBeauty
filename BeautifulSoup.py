@@ -1,12 +1,31 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import chompjs
 
 brands_data = []
 
 url = 'https://thegoodshoppingguide.com/subject/ethical-skincare/'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
+
+criteria_scores = []
+GSG_links = []
+
+scripts = soup.find_all('script')
+
+for info in scripts:
+    if info.string and 'window.ratings[' in info.string: #checks if the script has text and if the text includes 'window.ratings[' 
+        raw_js = info.string
+        clean_js = raw_js.split('= (')[1].rsplit(');', 1)[0] #isolates neccesary data
+        parsed = chompjs.parse_js_object(clean_js) #created dictionary with chompjs
+        criteria_scores.append(parsed)
+
+    if info.string and 'window.comparison[' in info.string: #checks if the script has text and if the text includes 'window.comparison[' 
+        raw_js = info.string
+        clean_js = raw_js.split('= (')[1].rsplit(');', 1)[0] #isolates neccesary data
+        parsed = chompjs.parse_js_object(clean_js) #created dictionary with chompjs
+        GSG_links.append(parsed)
 
 results = soup.select("#rating__rows .rating__row") #broadened my reach to get all info needed
 for data in results: #switched to using a CSS selector to scrape mroe accurately
