@@ -23,16 +23,18 @@
 
  4. Create basic dictionary, user input, and output for search queries – Victoria: DONE
 
- 5. Commit current code and start integrating Streamlit repo – Victoria: IN PROGRESS!!!
+## Sprint 3 (April 15 – April 30) ##
 
-## Sprint 3 (April 15 – April 21) ##
+ 1. Update code to extract more detailed data (links, criteria scores) – Victoria: DONE (phew)
 
- 1. Update code to handle more complex queries – Victoria: 
+ 2. Create clean CSV ready for Streamlit integration - Victoria: DONE
 
- 2. Add visuals for ethical ratings and ESG scores – Victoria: 
+ 3. Start integrating Streamlit repo - Victoria: IN PROGRESS!!!
 
- 3. Begin working on powerpoint – Victoria: 
+ 4. Add visuals for ethical ratings and ESG scores – Victoria: 
 
- 4. Start adding screenshots to README – Victoria: 
+ 5. Begin working on powerpoint – Victoria: 
 
- 5. Push all code updates to GitHub – Victoria: 
+ 6. Start adding screenshots to README – Victoria: 
+
+ 7. Push all code updates to GitHub – Victoria: 
