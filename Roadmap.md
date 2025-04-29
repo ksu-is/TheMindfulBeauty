@@ -29,9 +29,9 @@
 
  2. Create clean CSV ready for Streamlit integration - Victoria: DONE
 
- 3. Start integrating Streamlit repo - Victoria: IN PROGRESS!!!
+ 3. Start integrating Streamlit repo - Victoria: DONE
 
- 4. Add visuals for ethical ratings and ESG scores – Victoria: 
+ 4. Add visuals for ethical ratings and ESG scores – Victoria: DONE
 
  5. Begin working on powerpoint – Victoria: 
 
