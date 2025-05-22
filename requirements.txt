@@ -3,3 +3,4 @@ pandas
 plotly
 chompjs
 beautifulsoup4
+streamlit-option-menu
