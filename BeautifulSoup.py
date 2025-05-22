@@ -1,4 +1,4 @@
-import requests
+import requests #import libraries
 from bs4 import BeautifulSoup
 import chompjs
 import pandas as pd
@@ -8,7 +8,7 @@ def scrape_category(url, filename):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    ratings_objects = []  #store criterias and their scores
+    ratings_objects = []  #store criterias and their scores in lists
     comparison_objects = []  #store general brand info (name, link, GSG score, etc..)
 
     #Extract and parse all script tags
@@ -24,15 +24,15 @@ def scrape_category(url, filename):
             for text in js[1:]:
                 try:
                     clean = text.split('= (')[1].split(');')[0]
-                    parsed = chompjs.parse_js_object(clean)
-                    ratings_objects.append(parsed)
+                    parsed = chompjs.parse_js_object(clean) #convert JS object to Python dict
+                    ratings_objects.append(parsed) #save to list
                 except Exception: 
                     continue
 
         #Parse all 'window.comparison[' JS objects
-        if 'window.comparison[' in script.string:
+        if 'window.comparison[' in script.string: #identify relevant script content 
             js = script.string.split('window.comparison[')
-            for text in js[1:]:
+            for text in js[1:]: 
                 try:
                     clean = text.split('= (')[1].split(');')[0] #isolate the JS object
                     parsed = chompjs.parse_js_object(clean) #convert JS object to Python dict
@@ -69,7 +69,7 @@ def scrape_category(url, filename):
         }
 
         total_raw_score = 0
-        #Match to the same index in ratings
+        #Extract nested data from list and organize into dictionary
         if i < len(ratings_objects):   #ensure there is a matching ratings entry
             rating_dict = ratings_objects[i].get("ratings", {})
             if isinstance(rating_dict, dict):  #double check it is valid!
@@ -78,7 +78,7 @@ def scrape_category(url, filename):
                         title = nest.get("title", "").strip() #extract necessary info!
                         score = nest.get("score", "").strip()
                         if title and score:
-                            csv_data[title] = score
+                            csv_data[title] = score #pair title with score
                             try:
                                 total_raw_score += float(score) #convert str to float(decimal)
                             except ValueError:
@@ -94,13 +94,13 @@ def scrape_category(url, filename):
         print(f"{filename} created!")
         return df
 
-# Call for skincare data!
+# Call function for skincare data!
 skincare_df = scrape_category(
     url = "https://thegoodshoppingguide.com/subject/ethical-skincare/",
     filename="skincare.csv"
 )
 
-# Call for fashion data!
+# Call fucntion for fashion data!
 fashion_df = scrape_category(
     url = "https://thegoodshoppingguide.com/subject/ethical-fashion-retailers/",
     filename = "fashion.csv"
