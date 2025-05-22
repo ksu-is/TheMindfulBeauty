@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 
+### --- Sidebar Setup ---
+# Create sidebar with logo and welcome message
 with st.sidebar:
     st.image("logo.png", width=350)  # Logo image
     st.markdown("<h4 style='text-align: center;'>Welcome! Choose from the options below to begin your ethical shopping journey.</h4>", unsafe_allow_html=True)
@@ -17,6 +19,7 @@ with st.sidebar:
         default_index=0,
     )
 
+###Consildated functions to prevent code duplication
 # Function to get performance emoji based on score
 def get_performance_emoji(score): 
     if score >= 70:
@@ -86,6 +89,7 @@ def load_data(category):
     df.index += 1    
     return df, criteria_cols, max_scores, raw_score_total 
 
+### --- Display Brand Info ---
 # Function to display brand information and scores
 def display_brand_info(df, brand, criteria_cols, max_scores, raw_score_total):
     brand_details = df[df['Brand'] == brand]  
@@ -172,6 +176,8 @@ def compare_brands(df, criteria_cols, max_scores):
         st.table(comparison_table.style.format("{:.1f}"))
     
     st.divider()
+
+    # Display the top brands based on selected criteria
     st.subheader("Find Brands by Ethical Areas")
     selected_criteria = st.multiselect(
         "Select Ethical Criteria to filter brands by (must score 'Good')",
